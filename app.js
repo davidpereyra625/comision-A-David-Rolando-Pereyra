@@ -3,8 +3,12 @@ import { taskRouter } from "./src/routes/task.routes.js";
 import { stardDb } from "./src/config/database.js";
 import cors from "cors";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 
 // 1-Arrancamos con el servidor
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+console.log(__dirname);
 
 const app = express();
 //middlewares
