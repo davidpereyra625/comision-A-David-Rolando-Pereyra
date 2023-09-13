@@ -1,0 +1,25 @@
+### TRAER TAREAS
+GET http://localhost:3000/api/tasks
+
+### CREAR TAREA
+POST http://localhost:3000/api/tasks
+Content-Type: application/json
+
+{
+    "title": "cuarta tarea",
+    "description": "cuarta descripcion",
+    "poster": "https://i0.wp.com/www.lacasadeel.net/wp-content/uploads/2022/11/Dragon-Ball-shenron-Goku-1-e1667325265500.jpg?resize=1068,547&ssl=1"
+}
+
+### MODIFICAR TAREA
+PUT http://localhost:3000/api/tasks/1
+Content-Type: application/json
+
+{
+    "title": "tercera tarea",
+    "description":"tarea modificada",
+    "poster":"www.ja.com"
+}
+
+### ELIMINAR
+DELETE http://localhost:3000/api/tasks/1
