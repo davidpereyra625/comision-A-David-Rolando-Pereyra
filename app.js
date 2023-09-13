@@ -2,6 +2,7 @@ import express from "express";
 import { taskRouter } from "./src/routes/task.routes.js";
 import { stardDb } from "./src/config/database.js";
 import cors from "cors";
+import path from "node:path";
 
 // 1-Arrancamos con el servidor
 
@@ -10,6 +11,10 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+app.use(expre)
+
+app.set("views", path.join(__dirname, "src", "views")); //directorio donde esta el archivo
+app.set("view engine", "ejs"); //configurando el motor de plantilla
 const port = 3000; //1.1 creamos el puerto
 
 app.get("/", (req, res) => {
