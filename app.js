@@ -11,7 +11,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-app.use(expre)
+app.use(express.static(path.join(__dirname, "src", "public")));
 
 app.set("views", path.join(__dirname, "src", "views")); //directorio donde esta el archivo
 app.set("view engine", "ejs"); //configurando el motor de plantilla
