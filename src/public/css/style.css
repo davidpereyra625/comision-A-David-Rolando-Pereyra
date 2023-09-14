@@ -34,7 +34,7 @@
   }
   
   /* Estilo para el botón */
-  .btn {
+  /* .btn {
     margin-top: 10px;
     background-color: #007bff;
     color: #fff;
@@ -43,12 +43,37 @@
   
   .btn:hover {
     background-color: #0056b3;
-  }
+  } */
   
   /* Estilo para el encabezado (título principal) */
   header h1 {
     font-size: 2rem;
     margin-top: 30px;
     color: #333;
+  }
+
+  /* Estilo para el nav */
+nav {
+    background-color: #221414; /* Color de fondo gris */
+    width: 100%; /* Ancho del 100% para ocupar toda la fila */
+    padding: 10px 0; /* Añadir un espacio vertical */
+  }
+  
+  /* Estilo para los elementos de navegación */
+  .nav-item {
+    margin: 0 10px; /* Margen entre los elementos de navegación */
+  }
+  
+  /* Estilo para los enlaces de navegación */
+  .nav-link {
+    color: #333; /* Color del texto */
+    text-decoration: none; /* Quitar subrayado */
+    font-weight: bold; /* Negrita */
+  }
+  
+  /* Estilo para los enlaces de navegación cuando están activos o en :hover */
+  .nav-link.active,
+  .nav-link:hover {
+    color: #007bff; /* Color azul para resaltar */
   }
   
