@@ -1,5 +1,18 @@
 import { TaskModel } from "../models/Tasks.js";
 
+// Controlador para mostrar la página de inicio
+export const ctrlViewIndex = async (req, res) => {
+  try {
+    const tasks = await TaskModel.findAll();
+    res.render("index.ejs", { tasks }); // Renderiza la vista index.ejs y pasa las tareas como datos
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({
+      message: "Error Server",
+    });
+  }
+};
+
 // controlador para mostrar la vista
 export const ctrlView = async (req, res) => {
   try {
