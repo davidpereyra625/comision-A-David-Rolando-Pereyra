@@ -21,24 +21,39 @@ btnCrear.addEventListener("click", () => {
   myModal.show();
 });
 
-
+// evento para eliminar
 document.addEventListener('click', (event) => {
     if (event.target.matches('#btn-delete')) {
         const article = event.target.closest('.col-4')
         const idArticle = article.dataset.id
-
-        fetch(`http://localhost:3000/api/tasks/${idArticle}`, {
-            method: 'DELETE'
-        }).then(res => {
-            if (res.ok) {
-                article.remove()
-            }
-        }).catch(err => {
-            console.error(err)
-        })
+        
+        Swal.fire({
+          title: "¿Estás seguro de eliminar?",
+          text: "¡No podrás revertir esto!",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#3085d6",
+          cancelButtonColor: "#d33",
+          confirmButtonText: "¡Si, Eliminar!",
+        }).then((result) => {
+          if (result.isConfirmed) {
+            fetch(`http://localhost:3000/api/tasks/${idArticle}`, {
+              method: "DELETE",
+            })
+              .then((res) => {
+                if (res.ok) {
+                  article.remove();
+                }
+              })
+              .catch((err) => {
+                console.error(err);
+              });
+            Swal.fire("Emininado!", "Tu archivo ha sido eliminado.", "success");
+          }
+        });
     }
 })
-
+//Evento para editar
 document.addEventListener("click", (event) => {
   if (event.target.matches("#btn-edit")) {
     const article = event.target.closest(".col-4");
@@ -79,7 +94,13 @@ form.addEventListener("submit", (event) => {
     }).then(res => {
       console.log(res)
         if (res.ok) {
-          alert("Task created successfully");
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Your save has been saved',
+            showConfirmButton: false,
+            timer: 5000
+          })
           myModal.hide();
           location.reload();
         }
@@ -103,8 +124,14 @@ form.addEventListener("submit", (event) => {
       },
       body: JSON.stringify(newTask)
     }).then(res => {
+      Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Editar has been saved',
+        showConfirmButton: true,
+        timer: 1500
+      })
       if(res.ok){
-        alert('Task edited successfully')
         myModal.hide();
         location.reload();
       }
