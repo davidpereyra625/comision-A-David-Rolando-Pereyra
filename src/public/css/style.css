@@ -1,4 +1,54 @@
-.card-img-top{
+/* Estilo para las tarjetas */
+.card {
+    margin: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Estilo para el título */
+  .card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  /* Estilo para la descripción */
+  .card-text {
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  /* Estilo para la fecha de creación */
+  .card-text.date {
+    font-size: 0.9rem;
+    color: #888;
+  }
+  
+  /* Estilo para la imagen */
+  .card-img-top {
     height: 250px;
     object-fit: cover;
-}
+  }
+  
+  /* Estilo para el botón */
+  .btn {
+    margin-top: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+  }
+  
+  .btn:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Estilo para el encabezado (título principal) */
+  header h1 {
+    font-size: 2rem;
+    margin-top: 30px;
+    color: #333;
+  }
+  
