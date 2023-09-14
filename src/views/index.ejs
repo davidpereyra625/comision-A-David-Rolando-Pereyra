@@ -1,15 +1,23 @@
 <%- include('partials/header') -%>
-<h1>HTML LISTO</h1>
+    <h1>HTML LISTO</h1>
 
-<p>otro parrafo</p>
+    <p>otro parrafo</p>
 
-<p><%= title %></p>
+    <p>
+        <%= title %>
+    </p>
 
-<% alumnos.forEach(alumno=> { %>
+    <% alumnos.forEach(alumno=> { %>
 
-<ul>
-  <li><%= alumno.nombre %></li>
-  <li><%= alumno.apellido %></li>
-</ul>
+        <ul>
+            <li>
+                <%= alumno.nombre %>
+            </li>
+            <li>
+                <%= alumno.apellido %>
+            </li>
+        </ul>
 
-<% }) %> <%- include("partials/footer") -%>
+        <% }) %>
+
+            <%- include("partials/footer") -%>

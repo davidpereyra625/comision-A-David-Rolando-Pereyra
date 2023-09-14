@@ -1,35 +1,42 @@
-import express from "express";
-import { taskRouter } from "./src/routes/task.routes.js";
-import { stardDb } from "./src/config/database.js";
-import cors from "cors";
-import path from "node:path";
-import { fileURLToPath } from "node:url";
+import express from 'express';
+import { taskRouter } from './src/routes/task.routes.js';
+import { startDb } from './src/config/database.js';
+import path from 'node:path'
+import cors from 'cors'
+import morgan from 'morgan';
+import helmet from 'helmet'
+import { fileURLToPath } from 'node:url';
 
-// 1-Arrancamos con el servidor
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-console.log(__dirname);
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 
 const app = express();
+
 //middlewares
-app.use(express.json());
-app.use(cors());
+app.use(express.json())
+app.use(cors())
+app.use(morgan('dev'))
+app.use(helmet({
+    contentSecurityPolicy: false
+}))
 
-app.use(express.static(path.join(__dirname, "src", "public")));
 
-app.set("views", path.join(__dirname, "src", "views")); //directorio donde esta el archivo
-app.set("view engine", "ejs"); //configurando el motor de plantilla
-const port = 3000; //1.1 creamos el puerto
+app.use(express.static(path.join(__dirname, "src", "public")))
 
-app.get("/", (req, res) => {
-  //1.3 visualizamos por pantalla con localhost:3000
-  res.send("Todo Listo");
-});
-//2- creamos las rutas
-app.use("/", taskRouter); //2.1 aqui se envia a la carpeta routes/task.routes.js
+app.set('views', path.join(__dirname, "src", "views"))
+app.set('view engine', 'ejs');
+
+const port = 3000
+
+app.use('/', taskRouter)
 
 app.listen(port, () => {
-  //1.2 escuchamos el port
-  console.log(`server listening http://localhost:${port}`);
-  stardDb();
-});
+    console.log('servidor listo')
+    startDb()
+})
+
+
+
+
+
+
