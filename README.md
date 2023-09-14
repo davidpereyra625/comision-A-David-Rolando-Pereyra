@@ -27,4 +27,11 @@ description -> varchar(255)
 poster -> varchar(255)
 Implementar en la carpeta models/Tasks.js timestamps: true para que se ejecute la fecha de creacion y actualizacion de la fila creada.
 
+## Instalación de Dependencias:
+
+Instala las dependencias necesarias para el proyecto. Ejecuta los siguientes comandos:
+
+npm install express ejs sequelize mysql2 dotenv
+npm install --save-dev nodemon
+
 </div>
