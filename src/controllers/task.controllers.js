@@ -22,7 +22,7 @@ export const ctrlGetTasks = async (req, res) => {
   } catch (error) {
     console.error(error);
     return res.status(500).json({
-      message: "Error Server",
+      message: "Error Servidor",
     });
   }
 };
@@ -35,7 +35,7 @@ export const ctrlCreateTask = async (req, res) => {
   } catch (error) {
     console.error(error);
     return res.status(500).json({
-      message: "Error Server",
+      message: "Error Servidor",
     });
   }
 };
@@ -58,7 +58,7 @@ export const ctrlUpdateTask = async (req, res) => {
   } catch (error) {
     console.error(error);
     return res.status(500).json({
-      message: "Error Server",
+      message: "Error Servidor",
     });
   }
 };
@@ -83,7 +83,7 @@ export const ctrlDeleteTask = async (req, res) => {
   } catch (error) {
     console.error(error);
     return res.status(500).json({
-      message: "Error Server",
+      message: "Error Servidor",
     });
   }
 };
